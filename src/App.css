@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  border: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -26,6 +31,31 @@
 
 .App-link {
   color: #61dafb;
+}
+
+button {
+  width: 100px;
+  height: 20px;
+  border: solid black 1px;
+}
+
+input {
+  border: solid black 1px;
+}
+
+.cards-matrix {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+  border: solid black 1px;
+}
+
+img {
+  width: 200px;
 }
 
 @keyframes App-logo-spin {
