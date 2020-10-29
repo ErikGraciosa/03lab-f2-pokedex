@@ -1,44 +1,63 @@
 import React, { Component } from 'react'
 import './App.css';
 import SearchButton from './SearchButton.js';
-import Dropdown from './Dropdown.js';
+import Dropdown1 from './Dropdown1.js';
+import Dropdown2 from './Dropdown2.js';
 import Input from './Input.js';
 import Header from './Header.js';
 import Pokecard from './Pokecard';
 import pokedex from './data.js';
 
+
+
 export default class App extends Component {
 
   state = {
+    appliedFilter: '',
     filterPokemon: '',
-    filterAttach: '',
+    filterAttack: '',
     filterDefense: '',
     filterType: ''
   }
 
   updateFromInput = e => {
     this.setState({
-        filterPokemon: e.target.value
+      filterPokemon: e.target.value,
     });
-}
+  }
 
-  inputButton
+  clickHandler = () => {
+    this.setState({
+      appliedFilter: this.state.filterPokemon,
+    })
+  }
+
+  dropdown1 = ['ascending', 'decending'];
 
   render() {
     console.log(this.state.filterPokemon);
+    console.log('this is the filter' + this.appliedFilter)
     return (
       <div>
         PokeApp
         <Header />
         <div className="sidebar">
           <Input updateFromInput={this.updateFromInput} />
-          <SearchButton />
-          <Dropdown />
-          <Dropdown />
+          <SearchButton clickHandler={this.clickHandler}/>
+          <Dropdown1 />
+          <Dropdown2 />
         </div>
         <div className="cards-matrix">
           {
-            pokedex.map((single) => 
+            pokedex.filter((items) => {
+              if (!this.state.appliedFilter) 
+                return true;
+              if (items.pokemon === this.state.appliedFilter)
+                return true;
+
+              return false;
+            })
+            .map((single) => 
               <Pokecard 
                 pokemon={single.pokemon}
                 url_image={single.url_image}

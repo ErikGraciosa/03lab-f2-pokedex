@@ -43,6 +43,10 @@ input {
   border: solid black 1px;
 }
 
+img {
+  width: 200px;
+}
+
 .cards-matrix {
     margin-top: 10px;
     display: flex;
@@ -54,9 +58,11 @@ input {
   border: solid black 1px;
 }
 
-img {
-  width: 200px;
+.dropdown {
+  border: solid black 1px;
 }
+
+
 
 @keyframes App-logo-spin {
   from {
