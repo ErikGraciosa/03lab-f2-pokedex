@@ -16,17 +16,22 @@ export default class App extends Component {
     filterType: ''
   }
 
-
+  updateFromInput = e => {
+    this.setState({
+        filterPokemon: e.target.value
+    });
+}
 
   inputButton
 
   render() {
+    console.log(this.state.filterPokemon);
     return (
       <div>
         PokeApp
         <Header />
         <div className="sidebar">
-          <Input />
+          <Input updateFromInput={this.updateFromInput} />
           <SearchButton />
           <Dropdown />
           <Dropdown />
