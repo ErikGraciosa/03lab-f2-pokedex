@@ -1,0 +1,36 @@
+import React, { Component } from 'react'
+import fetch from 'superagent';
+import Pokecard from './Pokecard.js';
+
+export default class FuturamaPage extends Component {
+
+    state = {
+        quotes: [],
+    }
+
+    componentDidMount = async () => {
+        const response = await fetch.get('http://futuramaapi.herokuapp.com/api/quotes');
+        this.setState({
+            quotes: response.body
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                this is now a futurama website
+                <div className="cards-matrix">
+                    {
+                        this.state.quotes.map((single) => 
+                        <Pokecard 
+                            pokemon={single.character}
+                            url_image={single.image}
+                            attack={single.quote}
+                            type_1={'empty'}
+                            defense={'empty'}/>)
+                    }
+                </div>
+            </div>
+        )
+    }
+}
