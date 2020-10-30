@@ -7,6 +7,7 @@ import {
 import ListPage from './ListPage.js';
 import Header from './Header.js';
 import FuturamaPage from './FuturamaPage.js';
+import HomePage from './HomePage.js';
 import './App.css';
 
 
@@ -17,8 +18,13 @@ export default class App extends Component {
                 <Router>
                     <Header />
                     <Switch>
-                        <Route 
+                    <Route 
                             path="/" 
+                            exact
+                            render={(routerProps) => <HomePage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/ListPage" 
                             exact
                             render={(routerProps) => <ListPage {...routerProps} />} 
                         />

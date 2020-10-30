@@ -5,6 +5,7 @@ import Sort from './Sort.js';
 import Input from './Input.js';
 import Pokecard from './Pokecard';
 import pokedex from './data.js';
+import fetch from 'superagent';
 
 
 
@@ -15,6 +16,7 @@ export default class App extends Component {
     filterPokemon: '',
     filterType: 'attack',
     direction: 'ascending',
+    pokemonData: [],
   }
 
   updateFromInput = e => {
@@ -41,8 +43,18 @@ export default class App extends Component {
     })
   }
 
+  componentDidMount = async () => {
+    const response = await fetch.get('https://alchemy-pokedex.herokuapp.com/api/pokedex');
+    this.setState({
+      pokemonData: JSON.stringify(response.body)
+    })
+}
+
     
   render() {
+    //COOL ZONE
+    console.log('this is the response' + this.state.pokemonData)
+
     const sortedPokedex = pokedex.sort((a, b) => {
       if (this.state.direction === 'ascending') {
         if(this.state.filterType === 'type_1') {
