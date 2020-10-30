@@ -7,7 +7,8 @@ export default class Header extends Component {
             <div className="header">
                 <h2>This is a Sortable Pokedex with an extra Futurama Page.</h2>
                 <NavLink to="/">Home</NavLink><br/>
-                <NavLink to="/ListPage">List Page</NavLink><br/>   
+                <NavLink to="/ListPage">List Page</NavLink><br/>
+                <NavLink to="/ArchiveListPage">ArchiveListPage</NavLink><br/>     
                 <NavLink to="/FuturamaPage">Futurama Page</NavLink><br/>             
             </div>
         )

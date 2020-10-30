@@ -29,6 +29,11 @@ export default class App extends Component {
                             render={(routerProps) => <ListPage {...routerProps} />} 
                         />
                         <Route 
+                            path="/ArchiveListPage" 
+                            exact
+                            render={(routerProps) => <ListPage {...routerProps} />} 
+                        />
+                        <Route 
                             path="/FuturamaPage" 
                             exact
                             render={(routerProps) => <FuturamaPage {...routerProps} />} 
