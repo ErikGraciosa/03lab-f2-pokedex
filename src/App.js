@@ -5,8 +5,8 @@ import {
     Switch,
 } from 'react-router-dom';
 import ListPage from './ListPage.js';
-import ListPageBizzaro from './ListPageBizarro.js';
 import Header from './Header.js';
+import FuturamaPage from './FuturamaPage.js';
 import './App.css';
 
 
@@ -23,9 +23,9 @@ export default class App extends Component {
                             render={(routerProps) => <ListPage {...routerProps} />} 
                         />
                         <Route 
-                            path="/ListPageBizzaro" 
+                            path="/FuturamaPage" 
                             exact
-                            render={(routerProps) => <ListPageBizzaro {...routerProps} />} 
+                            render={(routerProps) => <FuturamaPage {...routerProps} />} 
                         />
                     </Switch>
                 </Router>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 // import './App.css';
 import SearchButton from './SearchButton.js';
-import Dropdown1 from './Dropdown1.js';
-import Dropdown2 from './Dropdown2.js';
+import Sort from './Sort.js';
 import Input from './Input.js';
 import Pokecard from './Pokecard';
 import pokedex from './data.js';
@@ -14,9 +13,8 @@ export default class App extends Component {
   state = {
     appliedFilter: '',
     filterPokemon: '',
-    filterAttack: '',
-    filterDefense: '',
-    filterType: ''
+    filterType: 'attack',
+    direction: 'ascending',
   }
 
   updateFromInput = e => {
@@ -31,23 +29,46 @@ export default class App extends Component {
     })
   }
 
-  dropdown1 = ['ascending', 'decending'];
+  updateDirection = (e) => {
+    this.setState({
+      direction: e.target.value,
+    })
+  }
 
+  updateFilterType = (e) => {
+    this.setState({
+      filterType: e.target.value,
+    })
+  }
+
+    
   render() {
-    console.log(this.state.filterPokemon);
-    console.log('this is the filter' + this.appliedFilter)
+    const sortedPokedex = pokedex.sort((a, b) => {
+      if (this.state.direction === 'ascending') {
+        if(this.state.filterType === 'type_1') {
+          return a[this.state.filterType].localeCompare(b[this.state.filterType])
+        } else {
+          return a[this.state.filterType] - b[this.state.filterType];
+        }    
+      } else {
+        if(this.state.filterType === 'type_1') {
+          return b[this.state.filterType].localeCompare(a[this.state.filterType])
+        } else {
+          return b[this.state.filterType] - a[this.state.filterType];
+        } 
+      }
+    });
+
     return (
-      <div>
-        PokeApp
+      <div className="page-display">
         <div className="sidebar">
           <Input updateFromInput={this.updateFromInput} />
           <SearchButton clickHandler={this.clickHandler}/>
-          <Dropdown1 />
-          <Dropdown2 />
+          <Sort updateDirection={this.updateDirection} updateFilterType={this.updateFilterType}/>
         </div>
         <div className="cards-matrix">
           {
-            pokedex.filter((items) => {
+            sortedPokedex.filter((items) => {
               if (!this.state.appliedFilter) 
                 return true;
               if (items.pokemon === this.state.appliedFilter)

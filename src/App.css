@@ -32,14 +32,33 @@
 .App-link {
   color: #61dafb;
 }
-
-button {
-  width: 100px;
-  height: 20px;
-  border: solid black 1px;
+.page-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: black solid 1px;
 }
 
-input {
+.header {
+  background-color: rgb(176, 179, 13);
+}
+
+.sidebar {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(176, 179, 13)
+}
+
+.cards-matrix {
+  border: solid black 1px;
+  background-color: rgb(234, 238, 26)
+}
+
+button, input {
+  width: 100px;
+  height: 20px;
   border: solid black 1px;
 }
 
@@ -48,7 +67,6 @@ img {
 }
 
 .cards-matrix {
-    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -56,6 +74,8 @@ img {
 
 .card {
   border: solid black 1px;
+  max-width: 320px;
+  margin: 5px;
 }
 
 .dropdown {
