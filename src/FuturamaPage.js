@@ -9,7 +9,7 @@ export default class FuturamaPage extends Component {
     }
 
     componentDidMount = async () => {
-        const response = await fetch.get('http://futuramaapi.herokuapp.com/api/quotes');
+        const response = await fetch.get('https://futuramaapi.herokuapp.com/api/quotes');
         this.setState({
             quotes: response.body
         });
