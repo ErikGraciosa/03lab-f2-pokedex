@@ -9,8 +9,8 @@ export default class Sort extends Component {
                     Sort
                     <br/>
                     <select className="dropdown" onChange={this.props.updateDirection}>
-                        <option value="ascending">Ascending</option>
-                        <option value="descending">Descending</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
                     </select>
                 </div>
                 <div>
