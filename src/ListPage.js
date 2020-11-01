@@ -29,7 +29,7 @@ export default class App extends Component {
     await this.setState({
       appliedFilter: this.state.filterPokemon,
     })
-    this.fetchPokemon();
+     this.fetchPokemon();
   }
 
   updateDirection = async (e) => {
@@ -46,11 +46,8 @@ export default class App extends Component {
     this.fetchPokemon();
   }
 
-  //Blueprint for the api call, just need to change the query parameters via user input that is set in state. Should call state here.
-
   fetchPokemon = async () => {
     const newFetch = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.appliedFilter}&sort=${this.state.filterType}&direction=${this.state.direction}&perPage=500`);
-    
     this.setState({
       pokemonData: newFetch.body
     })
@@ -59,14 +56,8 @@ export default class App extends Component {
   componentDidMount = async () => {
     await this.fetchPokemon();
 }
-
     
   render() {
-    //COOL ZONE
-    console.log('this is the response' + JSON.stringify(this.state.pokemonData))
-    console.log(this.state);
-    
-
     return (
       <div className="page-display">
         <div className="sidebar">
