@@ -50,7 +50,7 @@ export default class App extends Component {
   clickLink = async (single) => {
     // how can i get the character that i clicked on?
     this.props.history.push(`/${single._id}`);
-}
+  }
 
 
   fetchPokemon = async () => {
@@ -62,7 +62,7 @@ export default class App extends Component {
 
   componentDidMount = async () => {
     await this.fetchPokemon();
-}
+  }
     
   render() {
     return (

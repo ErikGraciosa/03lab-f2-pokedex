@@ -35,15 +35,16 @@ export default class App extends Component {
                             render={(routerProps) => <ListPage {...routerProps} />} 
                         />
                         <Route 
-                        path="/:details" 
-                        exact
-                        render={(routerProps) => <DetailsPage {...routerProps} />} 
-                    />
-                        <Route 
                             path="/FuturamaPage" 
                             exact
                             render={(routerProps) => <FuturamaPage {...routerProps} />} 
                         />
+                        <Route 
+                            path="/:_id" 
+                            exact
+                            render={(routerProps) => <DetailsPage {...routerProps} />} 
+                        />
+                        
                     </Switch>
                 </Router>
             </div>
