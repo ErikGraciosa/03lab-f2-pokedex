@@ -6,6 +6,7 @@ import Input from './Input.js';
 import Pokecard from './Pokecard';
 import fetch from 'superagent';
 import Spinner from './Spinner.js';
+import { Link } from 'react-router-dom';
 
 
 
@@ -46,6 +47,12 @@ export default class App extends Component {
     this.fetchPokemon();
   }
 
+  clickLink = async (single) => {
+    // how can i get the character that i clicked on?
+    this.props.history.push(`/${single._id}`);
+}
+
+
   fetchPokemon = async () => {
     const newFetch = await fetch.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.appliedFilter}&sort=${this.state.filterType}&direction=${this.state.direction}&perPage=500`);
     this.setState({
@@ -71,12 +78,15 @@ export default class App extends Component {
             this.state.pokemonData.length === 0
             ? <Spinner />
             : this.state.pokemonData.results.map((single) => 
-              <Pokecard 
-                pokemon={single.pokemon}
-                url_image={single.url_image}
-                attack={single.attack}
-                type_1={single.type_1}
-                defense={single.defense}/>)
+              <Link to={`/${single._id}`}>
+                <Pokecard 
+                  onClick={(e) => this.clickLink(single)}
+                  pokemon={single.pokemon}
+                  url_image={single.url_image}
+                  attack={single.attack}
+                  type_1={single.type_1}
+                  defense={single.defense}/>
+              </Link>)
           }
         </div>
       </div>

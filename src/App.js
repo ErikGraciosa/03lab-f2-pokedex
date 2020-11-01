@@ -8,6 +8,7 @@ import ListPage from './ListPage.js';
 import Header from './Header.js';
 import FuturamaPage from './FuturamaPage.js';
 import HomePage from './HomePage.js';
+import DetailsPage from './DetailsPage.js';
 import './App.css';
 
 
@@ -33,6 +34,11 @@ export default class App extends Component {
                             exact
                             render={(routerProps) => <ListPage {...routerProps} />} 
                         />
+                        <Route 
+                        path="/:details" 
+                        exact
+                        render={(routerProps) => <DetailsPage {...routerProps} />} 
+                    />
                         <Route 
                             path="/FuturamaPage" 
                             exact
