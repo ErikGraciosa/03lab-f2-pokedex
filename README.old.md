@@ -23,8 +23,8 @@ Looking For | Points (10)
 Looking For | Points (10)
 :--|--:
 []Add pagination (next/prev buttons that conditionally render) for queries that return more than 20 results | 3
-[]On List page, each ListItem has a `react router` `Link` to its Detail page | 2
-[]Styled Detail Page Component that uses `this.props.match.params.whatever` to make fetch on `componentDidMount` | 4
-[]Add loading spinner to Detail page | 1
+[x]On List page, each ListItem has a `react router` `Link` to its Detail page | 2
+[x]Styled Detail Page Component that uses `this.props.match.params.whatever` to make fetch on `componentDidMount` | 4
+[x]Add loading spinner to Detail page | 1
 []STRETCH: Sync the list page initial fetch/inputs with the params in URL (url injects term into input on load and fetches the correct pokemon, and the correct page with info from the URL) | +2
 []STRETCH: When I make a search in the app (or when I change the page with the pagination buttons), update the URL to sync the URL with the form UI | +1

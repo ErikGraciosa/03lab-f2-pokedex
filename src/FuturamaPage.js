@@ -18,7 +18,6 @@ export default class FuturamaPage extends Component {
     render() {
         return (
             <div>
-                this is now a futurama website
                 <div className="cards-matrix">
                     {
                         this.state.quotes.map((single) => 
