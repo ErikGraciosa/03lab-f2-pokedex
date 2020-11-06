@@ -23,7 +23,6 @@ export default class DetailsPage extends Component {
         console.log(this.state.pokemonData)
         return (
             <div>
-
                 {this.state.pokemonData.length === 0
             ? <Spinner />
             : <div>           
