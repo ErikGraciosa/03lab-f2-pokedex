@@ -9,7 +9,9 @@ import Header from './Header.js';
 import FuturamaPage from './FuturamaPage.js';
 import HomePage from './HomePage.js';
 import DetailsPage from './DetailsPage.js';
+import ArchiveListPage from './ArchiveListPage.js';
 import './App.css';
+
 
 
 export default class App extends Component {
@@ -32,7 +34,7 @@ export default class App extends Component {
                         <Route 
                             path="/ArchiveListPage" 
                             exact
-                            render={(routerProps) => <ListPage {...routerProps} />} 
+                            render={(routerProps) => <ArchiveListPage {...routerProps} />} 
                         />
                         <Route 
                             path="/FuturamaPage" 
